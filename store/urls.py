@@ -20,4 +20,3 @@ carts_router.register('items', views.CartItemViewSet, basename='cart-items')
 
 # URLConf
 urlpatterns = router.urls + products_router.urls + carts_router.urls
-
