@@ -12,13 +12,15 @@ drf-nested-routers = "*"
 django-filter = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
-drf-yasg = "*"
 pillow = "*"
 django-cors-headers = "*"
 django-templated-mail = "*"
+redis = "*"
+celery = "*"
+flower = "*"
 
 [dev-packages]
 autopep8 = "*"
 
 [requires]
-python_version = "*"
+python_version = "3.9"

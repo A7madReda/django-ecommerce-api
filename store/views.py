@@ -15,16 +15,6 @@ from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Prod
 from .serializers import AddCartItemSerializer, CartItemSerializer, CartSerializer, CollectionSerializer, CreateOrderSerializer, CustomerSerializer, OrderSerializer, ProductImageSerializer, ProductSerializer, ReviewSerializer, UpdateCartItemSerializer, UpdateOrderSerializer
 
 
-class ProductImageViewSet(ModelViewSet):  
-    serializer_class = ProductImageSerializer
-    
-    def get_serializer_context(self):
-        return {'product_id': self.kwargs['product_pk']}
-    
-    def get_queryset(self):
-        return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
-
-
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.prefetch_related('images').all()
     serializer_class = ProductSerializer
@@ -151,3 +141,13 @@ class OrderViewSet(ModelViewSet):
         customer_id = Customer.objects.only(
             'id').get(user_id=user.id)
         return Order.objects.filter(customer_id=customer_id)
+
+
+class ProductImageViewSet(ModelViewSet):
+    serializer_class = ProductImageSerializer
+
+    def get_serializer_context(self):
+        return {'product_id': self.kwargs['product_pk']}
+
+    def get_queryset(self):
+        return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
