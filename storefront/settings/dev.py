@@ -1,4 +1,4 @@
-from .common import *
+from storefront.settings.common import *
 
 DEBUG = True
 
