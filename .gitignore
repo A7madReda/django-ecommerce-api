@@ -1,4 +1,5 @@
 *.pyc
 /media/
 /static/
+/storefront/setting/div.py/
 general.log
